@@ -26,7 +26,7 @@ namespace App.Data.Concrete
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 
-            optionsBuilder.UseSqlServer("Data Source=ERAY\\SQLEXPRESS;Initial Catalog=AspNetMvcCms;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
+            optionsBuilder.UseSqlServer("***** Connection Stringinizi Yazın... *****"); 
 
             base.OnConfiguring(optionsBuilder);
         }
