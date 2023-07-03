@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace App.Web.Mvc.Areas.Admin.Controllers
 {
@@ -7,6 +8,7 @@ namespace App.Web.Mvc.Areas.Admin.Controllers
 
         [Area("Admin")]
         [Route("Admin/[controller]/[action]")]
+        [Authorize(Policy = "RequireAdminRole")]
         public IActionResult Index()
 		{
 			return View();

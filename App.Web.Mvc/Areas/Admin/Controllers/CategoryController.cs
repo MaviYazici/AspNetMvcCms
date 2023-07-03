@@ -1,13 +1,15 @@
 ﻿using App.Business.Concrete;
 using App.Data.EntityFramework;
 using App.Entities.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace App.Web.Mvc.Areas.Admin.Controllers
 {
 	[Area("Admin")]
 	[Route("Admin/[controller]/[action]")]
-	public class CategoryController : Controller
+    [Authorize(Policy = "RequireAdminRole")]
+    public class CategoryController : Controller
 	{
 		private readonly CategoryManager _categoryManager = new CategoryManager(new EfCategoryDal());
 		public IActionResult Index()

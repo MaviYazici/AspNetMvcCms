@@ -3,6 +3,7 @@ using App.Data.Concrete;
 using App.Data.EntityFramework;
 using App.Entities.Concrete;
 using App.Web.Mvc.Areas.Admin.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -13,6 +14,7 @@ namespace App.Web.Mvc.Areas.Admin.Controllers
 
     [Area("Admin")]
     [Route("Admin/[controller]/[action]")]
+    [Authorize(Policy = "RequireAdminRole")]
     public class BlogController : Controller
     {
         private readonly PostManager _postManager = new PostManager(new EfPostDal());

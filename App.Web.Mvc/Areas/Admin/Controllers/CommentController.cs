@@ -1,12 +1,14 @@
 ﻿using App.Business.Concrete;
 using App.Data.EntityFramework;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace App.Web.Mvc.Areas.Admin.Controllers
 {
 	[Area("Admin")]
 	[Route("Admin/[controller]/[action]")]
-	public class CommentController : Controller
+    [Authorize(Policy = "RequireAdminRole")]
+    public class CommentController : Controller
 	{
 		private readonly PostCommentManager _postCommentManager;
 		private readonly PostManager _postManager;

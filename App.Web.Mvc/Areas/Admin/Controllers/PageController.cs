@@ -1,12 +1,14 @@
 ﻿using App.Business.Concrete;
 using App.Data.EntityFramework;
 using App.Entities.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace App.Web.Mvc.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Route("Admin/[controller]/[action]")]
+    [Authorize(Policy = "RequireAdminRole")]
     public class PageController : Controller
     {
         PageManager _pageManager = new PageManager(new EfPageDal());

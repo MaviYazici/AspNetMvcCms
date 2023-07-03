@@ -26,11 +26,10 @@ namespace App.Data.Concrete
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 
-            optionsBuilder.UseSqlServer("***** Connection Stringinizi Yazın... *****"); 
+            optionsBuilder.UseSqlServer("Data Source=ERAY\\SQLEXPRESS;Initial Catalog=AspNetMvcCms;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False"); 
 
             base.OnConfiguring(optionsBuilder);
         }
-
 
         public DbSet<Category> Categories { get; set; }
         public DbSet<CategoryPost> CategoryPosts { get; set; }
